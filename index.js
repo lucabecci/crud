@@ -9,20 +9,30 @@ const crud = function () {
 
     return {
         create: (name, lastname) => {
-            /*YOUR CODE HERE */
-
+            items.push({ id: autoincrement, name, lastname })
+            autoincrement++
+            return items[autoincrement - 2]
         },
         read: (id) => {
-            /*YOUR CODE HERE */
-
+            let usr = items.find(i => i.id === id ? i : null)
+            if (usr) {return usr} else {return null}
         },
         update: (id, name, lastname) => {
-            /*YOUR CODE HERE */
-
+            let indexUsr = items.findIndex((i => i.id === id))
+            if(indexUsr > -1){
+                items[indexUsr].name = name
+                items[indexUsr].lastname = lastname
+                return items[indexUsr]
+            }else{
+                return false
+            }
         },
         delete: (id) => {
-            /*YOUR CODE HERE */
-
+            let indexUsr =  items.findIndex((i => i.id === id)) 
+            if(indexUsr > -1){
+                items.splice(indexUsr, 1)
+                return true
+            }else {return false}
         }
     }
 
