@@ -18,19 +18,19 @@ const crud = function () {
             if (usr) {return usr} else {return null}
         },
         update: (id, name, lastname) => {
-            let indexUsr = items.findIndex((i => i.id === id))
-            if(indexUsr > -1){
-                items[indexUsr].name = name
-                items[indexUsr].lastname = lastname
-                return items[indexUsr]
+            let ind = items.findIndex((i => i.id === id))
+            if(ind > -1){
+                items[ind].name = name
+                items[ind].lastname = lastname
+                return items[ind]
             }else{
                 return false
             }
         },
         delete: (id) => {
-            let indexUsr =  items.findIndex((i => i.id === id)) 
-            if(indexUsr > -1){
-                items.splice(indexUsr, 1)
+            let ind =  items.findIndex((i => i.id === id)) 
+            if(ind > -1){
+                items.splice(ind, 1)
                 return true
             }else {return false}
         }
